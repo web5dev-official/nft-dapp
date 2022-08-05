@@ -4,9 +4,44 @@ import { useState } from 'react';
 function App() {
   const [NftStatus, setNftStatus] = useState('none');
   const [ClaimNft, setClaimNft] = useState('visible');
+  const [BtnStatus, setBtnStatus] = useState("Connect to Mint");
   const [Wallet, setWallet] = useState();
   const [MintAmount, setMintAmount] = useState();
   const [Status, setStatus] = useState();
+
+  const ClickHandler = async () => {
+    if (BtnStatus === "Connect to Mint") {
+      const Account = await connectWallet();
+      setWallet(Account.address);
+      console.log(Wallet)
+    }
+    if (BtnStatus === "Mint Now") {
+      console.log("ready fo mint")
+    }
+  }
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      try {
+        const addressArray = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+        })
+        const obj = {
+          address: addressArray[0],
+        }
+        setBtnStatus('Mint Now');
+        return obj
+      } catch (err) {
+        return {
+          address: '',
+        }
+      }
+    } else {
+      return {
+        address: '',
+      }
+    }
+  }
   return (
     <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
       <div className="relative w-screen h-screen flex flex-col items-center justify-center">
@@ -32,7 +67,8 @@ function App() {
        <h1 className='text-white text-[0.8rem]  mt-4 bold'>{`your price will be 0 ETH and you will get 20 nft`}</h1>
        <h1 className='text-white text-[0.8rem] my-2 bold'>{`The LiquiDoodles you get, will be randomly picked`}</h1>
        <h1 className='text-white text-[2.2rem] my-2 bold'>{`BEST OF LUCK`}</h1>
-       <button className='bg-white my-2 text-blue-300 px-4 py-2 rounded-[16px]'>Mint Now</button>
+       <button className='bg-white my-2 text-blue-300 px-4 py-2 rounded-[16px]'
+       onClick={ClickHandler}>{BtnStatus}</button>
        </div>
        </div>
        </div>
