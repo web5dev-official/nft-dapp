@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.13e008f7.css",
-    "main.js": "/static/js/main.7630b3ab.js",
+    "main.js": "/static/js/main.f51c4ae9.js",
     "static/js/787.175fb6d8.chunk.js": "/static/js/787.175fb6d8.chunk.js",
     "static/media/rum-raisin.regular.ttf": "/static/media/rum-raisin.regular.df855b00b97454072284.ttf",
     "index.html": "/index.html",
     "main.13e008f7.css.map": "/static/css/main.13e008f7.css.map",
-    "main.7630b3ab.js.map": "/static/js/main.7630b3ab.js.map",
+    "main.f51c4ae9.js.map": "/static/js/main.f51c4ae9.js.map",
     "787.175fb6d8.chunk.js.map": "/static/js/787.175fb6d8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.13e008f7.css",
-    "static/js/main.7630b3ab.js"
+    "static/js/main.f51c4ae9.js"
   ]
 }
